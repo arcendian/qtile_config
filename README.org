@@ -1,0 +1,7 @@
+#+TITLE: QTILE WINDOW MANAGER LITERATE CONFIGURATION
+#+AUTHOR: Michael Espeña
+#+DESCRIPTION: Literate configuration of qtile window manager
+
+* About
+
+This is my [[./config.org][literate configuration]] of [[http://www.qtile.org/][qtile]] window manager in Emacs org mode tangled to [[./config.py][config.py]].
