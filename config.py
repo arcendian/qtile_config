@@ -111,9 +111,14 @@ keys = [
         desc="Decrease display brightness",
     ),
     Key([mod, "shift"], "q", lazy.spawn("dm-powermenu"), desc="Launch power menu"),
+    Key([mod, "shift"], "o", lazy.spawn("dmopen"), desc="Launch dmenu file opener"),
+    Key([mod, "shift"], "p", lazy.spawn("passmenu"), desc="Launch dmenu file opener"),
     Key([mod], "p", lazy.spawn("rofi -show run"), desc="Launch run menu"),
 ]
+# ----------------------------------------------------------------------------------------
 
+# ----------------------------------------------------------------------------------------
+# GROUPS
 groups = [Group(i) for i in "1234567890"]
 
 for i in groups:
