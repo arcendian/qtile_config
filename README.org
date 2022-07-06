@@ -1,6 +1,6 @@
-#+TITLE: QTILE WINDOW MANAGER LITERATE CONFIGURATION
+#+TITLE: QTILE WINDOW MANAGER CONFIGURATION
 #+AUTHOR: Michael Espeña
-#+DESCRIPTION: Literate configuration of qtile window manager
+#+DESCRIPTION: Configuration of qtile window manager
 
 * About
 
