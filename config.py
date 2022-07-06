@@ -1,13 +1,28 @@
-from libqtile import bar, layout, widget
-from libqtile.config import Click, Drag, Group, Key, Match, Screen
-from libqtile.config import ScratchPad, DropDown, Key
+# -----------------------------------------------------------------------------------------
+# IMPORTS
+from libqtile import bar, widget
+from libqtile.config import Click, Drag, DropDown, Group, Key, Match, ScratchPad, Screen
 from libqtile.lazy import lazy
-from libqtile.utils import guess_terminal
+
+# layouts
+from libqtile.layout.columns import Columns
+from libqtile.layout.xmonad import MonadTall
+from libqtile.layout.stack import Stack
+from libqtile.layout.floating import Floating
+
+# custom colors
 from qcolors import nordfox
 
+# -----------------------------------------------------------------------------------------
+
+# -----------------------------------------------------------------------------------------
+# Set modifier key and default terminal emulator
 mod = "mod4"
 terminal = "alacritty"
+# -----------------------------------------------------------------------------------------
 
+# -----------------------------------------------------------------------------------------
+# KEYBINDINGS
 keys = [
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
@@ -125,24 +140,12 @@ for i in groups:
             ),
         ]
     )
+# ----------------------------------------------------------------------------------------
 
+# ----------------------------------------------------------------------------------------
+# LAYOUTS
 layouts = [
-    layout.Stack(
-        border_normal=nordfox["dark-gray"],
-        border_focus=nordfox["blue"],
-        border_width=2,
-        num_stacks=1,
-        margin=10,
-    ),
-    layout.MonadTall(
-        border_normal=nordfox["dark-gray"],
-        border_focus=nordfox["blue"],
-        margin=10,
-        border_width=2,
-        single_border_width=2,
-        single_margin=10,
-    ),
-    layout.Columns(
+    Columns(
         border_normal=nordfox["dark-gray"],
         border_focus=nordfox["blue"],
         border_width=2,
@@ -152,8 +155,26 @@ layouts = [
         margin=10,
         margin_on_single=10,
     ),
+    MonadTall(
+        border_normal=nordfox["dark-gray"],
+        border_focus=nordfox["blue"],
+        margin=10,
+        border_width=2,
+        single_border_width=2,
+        single_margin=10,
+    ),
+    Stack(
+        border_normal=nordfox["dark-gray"],
+        border_focus=nordfox["blue"],
+        border_width=2,
+        num_stacks=1,
+        margin=10,
+    ),
 ]
+# ----------------------------------------------------------------------------------------
 
+# ----------------------------------------------------------------------------------------
+# WIDGETS
 widget_defaults = dict(
     font="sans",
     fontsize=12,
@@ -228,22 +249,25 @@ groups.append(
 # extend keys list with keybinding for scratchpad
 keys.extend(
     [
-        Key([mod, "control"], "1", lazy.group["scratchpad"].dropdown_toggle("term")),
-        Key([mod, "control"], "2", lazy.group["scratchpad"].dropdown_toggle("ncmpcpp")),
+        Key([mod, "mod1"], "1", lazy.group["scratchpad"].dropdown_toggle("term")),
+        Key([mod, "mod1"], "2", lazy.group["scratchpad"].dropdown_toggle("ncmpcpp")),
         # Key(["control"], "3", lazy.group['scratchpad'].dropdown_toggle('pomo')),
         # Key(["control"], "4", lazy.group['scratchpad'].dropdown_toggle('bitwarden')),
     ]
 )
+# ----------------------------------------------------------------------------------------
 
+# ----------------------------------------------------------------------------------------
+# OTHERS
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
 follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
-floating_layout = layout.Floating(
+floating_layout = Floating(
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
-        *layout.Floating.default_float_rules,
+        *Floating.default_float_rules,
         Match(wm_class="confirmreset"),  # gitk
         Match(wm_class="makebranch"),  # gitk
         Match(wm_class="maketag"),  # gitk
