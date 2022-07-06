@@ -4,4 +4,4 @@
 
 * About
 
-This is my [[./config.org][literate configuration]] of [[http://www.qtile.org/][qtile]] window manager in Emacs org mode tangled to [[./config.py][config.py]].
+This is my configuration of [[http://www.qtile.org/][qtile]] window manager.
