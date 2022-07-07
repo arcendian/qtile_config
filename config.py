@@ -1,6 +1,5 @@
 # -----------------------------------------------------------------------------------------
 # IMPORTS
-from libqtile import bar, widget
 from libqtile.config import Click, Drag, DropDown, Group, Key, Match, ScratchPad, Screen
 from libqtile.lazy import lazy
 
@@ -11,7 +10,21 @@ from libqtile.layout.stack import Stack
 from libqtile.layout.floating import Floating
 
 # custom colors
-from qcolors import nordfox
+from qcolors import nordlike
+
+# bar
+from libqtile.bar import Bar
+from libqtile.widget.battery import Battery
+from libqtile.widget.groupbox import GroupBox
+from libqtile.widget.currentlayout import CurrentLayout
+from libqtile.widget.window_count import WindowCount
+from libqtile.widget.cpu import CPU
+from libqtile.widget.memory import Memory
+from libqtile.widget.net import Net
+from libqtile.widget.clock import Clock
+from libqtile.widget.spacer import Spacer
+
+from unicodes import left_half_circle, right_half_circle
 
 # -----------------------------------------------------------------------------------------
 
@@ -181,36 +194,71 @@ layouts = [
 # ----------------------------------------------------------------------------------------
 # WIDGETS
 widget_defaults = dict(
-    font="sans",
-    fontsize=12,
-    padding=3,
+    font="JetBrains Mono Nerd Font",
+    fontsize=15,
+    padding=10,
 )
 extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        top=bar.Bar(
+        top=Bar(
             [
-                widget.CurrentLayout(),
-                widget.GroupBox(),
-                widget.Prompt(),
-                widget.WindowName(),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#b988b0", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
+                left_half_circle(nordlike["blue"]),
+                CurrentLayout(
+                    background=nordlike["blue"],
                 ),
-                widget.TextBox("default config", name="default"),
-                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
-                widget.Systray(),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-                widget.QuickExit(),
+                right_half_circle(nordlike["blue"]),
+                Spacer(length=10),
+                left_half_circle(nordlike["magenta"]),
+                Battery(
+                    background=nordlike["magenta"],
+                    charge_char="",
+                    discharge_char="",
+                    empty_char="",
+                ),
+                right_half_circle(nordlike["magenta"]),
+                Spacer(length=10),
+                left_half_circle(nordlike["cyan"]),
+                Clock(background=nordlike["cyan"], format=" %Y-%m-%d %a %I:%M %p"),
+                right_half_circle(nordlike["cyan"]),
+                Spacer(length=180),
+                left_half_circle(nordlike["bg"]),
+                GroupBox(
+                    disable_drag=True,
+                    active=nordlike["orange"],
+                    inactive=nordlike["fg_gutter"],
+                    highlight_method="line",
+                    block_highlight_text_color=nordlike["magenta"],
+                    borderwidth=0,
+                    highlight_color=nordlike["bg"],
+                    background=nordlike["bg"],
+                ),
+                right_half_circle(nordlike["bg"]),
+                Spacer(length=100),
+                left_half_circle(nordlike["dark-cyan"]),
+                CPU(
+                    format=" {freq_current}GHz {load_percent}%",
+                    background=nordlike["dark-cyan"],
+                ),
+                right_half_circle(nordlike["dark-cyan"]),
+                Spacer(length=10),
+                left_half_circle(nordlike["dark-magenta"]),
+                Memory(
+                    format=" {MemUsed: .0f}{mm}/{MemTotal: .0f}{mm}",
+                    background=nordlike["dark-magenta"],
+                ),
+                right_half_circle(nordlike["dark-magenta"]),
+                Spacer(length=10),
+                left_half_circle(nordlike["dark-blue"]),
+                Net(background=nordlike["dark-blue"]),
+                right_half_circle(nordlike["dark-blue"]),
             ],
-            24,
-            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
-        ),
+            margin=[10, 10, 5, 10],
+            background="#00000000",
+            opacity=1,
+            size=25,
+        )
     ),
 ]
 # ----------------------------------------------------------------------------------------
