@@ -5,3 +5,8 @@
 * About
 
 This is my configuration of [[http://www.qtile.org/][qtile]] window manager.
+
+* References
+
+Main reference: https://docs.qtile.org/en/latest
+Bar config: I used most of [[https://github.com/tuffgniuz/][Tuff Gniuz's]] bar as template
