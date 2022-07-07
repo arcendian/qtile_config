@@ -1,7 +1,7 @@
-nordfox = {
+nordlike = {
     "bg": "#2e3440",
-    "fg": "#b9bfca",
-    "fg_gutter": "#4b5668",
+    "fg": "#d8dee9",
+    "fg_gutter": "#4c566a",
     "black": "#3b4252",
     "red": "#bf616a",
     "green": "#a3be8c",
@@ -12,5 +12,9 @@ nordfox = {
     "white": "#e5e9f0",
     "orange": "#c9826b",
     "pink": "#bf88bc",
-    "dark-gray": "#b34252",
+    "dark-gray": "#3B4252",
+    "dark-cyan": "#8FBCBB",
+    "dark-magenta": "#5e81ac",
+    "dark-blue": "#91acd1",
+    "gray": "#434c5e",
 }
