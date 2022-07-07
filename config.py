@@ -151,26 +151,26 @@ for i in groups:
 # LAYOUTS
 layouts = [
     Columns(
-        border_normal=nordfox["dark-gray"],
-        border_focus=nordfox["blue"],
+        border_normal=nordlike["dark-gray"],
+        border_focus=nordlike["blue"],
         border_width=2,
-        border_normal_stack=nordfox["dark-gray"],
-        border_focus_stack=nordfox["cyan"],
+        border_normal_stack=nordlike["dark-gray"],
+        border_focus_stack=nordlike["cyan"],
         border_on_single=2,
         margin=10,
         margin_on_single=10,
     ),
     MonadTall(
-        border_normal=nordfox["dark-gray"],
-        border_focus=nordfox["blue"],
+        border_normal=nordlike["dark-gray"],
+        border_focus=nordlike["blue"],
         margin=10,
         border_width=2,
         single_border_width=2,
         single_margin=10,
     ),
     Stack(
-        border_normal=nordfox["dark-gray"],
-        border_focus=nordfox["blue"],
+        border_normal=nordlike["dark-gray"],
+        border_focus=nordlike["blue"],
         border_width=2,
         num_stacks=1,
         margin=10,
@@ -285,7 +285,10 @@ floating_layout = Floating(
         Match(wm_class="ssh-askpass"),  # ssh-askpass
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
-    ]
+    ],
+    border_focus=nordlike["blue"],
+    border_normal=nordlike["gray"],
+    border_width=2,
 )
 auto_fullscreen = True
 focus_on_window_activation = "smart"
