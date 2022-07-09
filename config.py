@@ -19,6 +19,7 @@ from libqtile.widget.groupbox import GroupBox
 from libqtile.widget.memory import Memory
 from libqtile.widget.net import Net
 from libqtile.widget.spacer import Spacer
+from libqtile.widget.volume import Volume
 from libqtile.widget.wlan import Wlan
 
 from qcolors import nordlike
@@ -418,7 +419,12 @@ screens = [
                     background=nordlike["bg"],
                 ),
                 Spacer(
-                    length=220,
+                    length=140,
+                ),
+                Volume(
+                    background=nordlike["dark-orange"],
+                    channel="PCM",
+                    fmt="墳 {:3}",
                 ),
                 Spacer(
                     length=10,
