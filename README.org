@@ -6,6 +6,10 @@
 
 This is my configuration of [[http://www.qtile.org/][qtile]] window manager.
 
+* TODO
+
+- [ ] Make configuration modular and not just one big file.
+
 * References
 
 Main reference: https://docs.qtile.org/en/latest
