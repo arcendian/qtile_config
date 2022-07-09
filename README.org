@@ -1,3 +1,4 @@
+
 #+TITLE: QTILE WINDOW MANAGER CONFIGURATION
 #+AUTHOR: Michael Espeña
 #+DESCRIPTION: Configuration of qtile window manager
@@ -6,7 +7,7 @@
 
 This is my configuration of [[http://www.qtile.org/][qtile]] window manager.
 
-* TODO
+* TODO Make configuration cleaner
 
 - [ ] Make configuration modular and not just one big file.
 
