@@ -161,7 +161,7 @@ keys = [
         [mod, "shift"],
         "e",
         lazy.spawn("start-emacs"),
-        desc="Launch emacsclient",
+        desc="Launch rofi menu for emacs stuff",
     ),
     Key(
         [mod],
@@ -198,12 +198,12 @@ keys = [
         [],
         "XF86AudioLowerVolume",
         lazy.spawn("amixer -q sset PCM,0 1- unmute"),
-        desc="Decrease audi volume",
+        desc="Decrease audio volume",
     ),
     Key(
         [],
         "XF86AudioMute",
-        lazy.spawn("amixer -q sset PCM,0 1- unmute"),
+        lazy.spawn("amixer -q sset PCM,0 toggle"),
         desc="Mute out audio volume",
     ),
     Key(
@@ -240,7 +240,7 @@ keys = [
         [mod, "shift"],
         "p",
         lazy.spawn("passmenu"),
-        desc="Launch dmenu file opener",
+        desc="Get password from password manager",
     ),
     Key(
         [mod],
