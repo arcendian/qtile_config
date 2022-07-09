@@ -248,6 +248,12 @@ keys = [
         lazy.spawn("rofi -show run"),
         desc="Launch run menu",
     ),
+    Key(
+        [mod],
+        "f",
+        lazy.spawn("pcmanfm-qt"),
+        desc="Launch file manager",
+    ),
 ]
 
 groups = [
